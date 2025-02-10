@@ -1,0 +1,91 @@
+<!-- layout.html -->
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!-- loader-->
+    <link href="{{ url_for('static', filename='assets/css/pace.min.css') }}" rel="stylesheet"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/pace.min.js') }}"></script>
+    <!--favicon-->
+    <link rel="icon" href="static/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="{{ url_for('static', filename='assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
+    <!-- simplebar CSS-->
+    <link href="{{ url_for('static', filename='assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="{{ url_for('static', filename='assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{{ url_for('static', filename='assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{{ url_for('static', filename='assets/css/app-style.css') }}" rel="stylesheet"/>
+    
+      <!-- Bootstrap core JavaScript-->
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/js/popper.min.js"></script>
+    <script src="static/assets/js/bootstrap.min.js"></script>
+    
+  <!-- simplebar js -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/simplebar/js/simplebar.js') }}"></script>
+    <!-- sidebar-menu js -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/sidebar-menu.js') }}"></script>
+    <!-- loader scripts -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.loading-indicator.js') }}"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/app-script.js') }}"></script>
+    <!-- Chart js -->
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/Chart.js/Chart.min.js') }}"></script>
+  
+    <title>{% block title %}{% endblock %} - **** Web</title>
+    <script type="text/javascript">
+      function myfunction(lng) 
+      {
+          console.log(lng);
+          $.ajax
+          ({ 
+              url: '/lng',
+              data: {"lng": lng},
+              type: 'post',
+              success: function(result)
+              {
+            console.log("Debug Message");
+            location.reload(true);
+                  $('.modal-box').text(result).fadeIn(700, function() 
+                  {
+                      setTimeout(function() 
+                      {
+                          $('.modal-box').fadeOut();
+                      }, 2000);
+                  });
+              }
+          });
+
+      }
+    </script>
+  </head>
+  <body class="bg-theme bg-theme2">
+    <!-- Start wrapper-->
+    <div id="wrapper">
+      <div>
+        {% include 'en/nav_bar.html' %} 
+        {% block content %}{% endblock %}
+        {% block consol %}{% endblock %}
+        {% block bacons %}{% endblock %}
+        {% block config %}{% endblock %}
+        {% block editProfile %}{% endblock %}
+        {% block updatefirmware %}{% endblock %}
+        {% block baconInfo %}{% endblock %}
+        {% block network %}{% endblock %}
+        {% include 'en/footer.html' %} 
+      </div>
+    </div>
+  </body>
+</html>

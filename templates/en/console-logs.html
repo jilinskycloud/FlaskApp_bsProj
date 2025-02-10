@@ -1,0 +1,20 @@
+{% extends 'en/layout.html' %}
+
+{% block title %}
+  Logs
+{% endblock %}
+
+{% block consol %}
+<div class="content-wrapper">
+<nav>
+  <div>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Boot Logs</a>
+    <a class="nav-item nav-link" id="nav-daemon-tab" data-toggle="tab" href="#nav-daemon-logs" role="tab" aria-controls="nav-daemon" aria-selected="false">Daemons Logs</a>
+	<a class="nav-item nav-link" id="nav-Dsensors-tab" data-toggle="tab" href="#nav-Dsensors-logs" role="tab" aria-controls="nav-Dsensors" aria-selected="false">Distance Sensors Logs</a>
+	<a class="nav-item nav-link" id="nav-Tsensors-tab" data-toggle="tab" href="#nav-Tsensors-logs" role="tab" aria-controls="nav-Tsensors" aria-selected="false">Temperature Sensors Logs</a>
+  </div>
+</nav>
+</div>
+</div>
+<!-- {% endblock %} -->
